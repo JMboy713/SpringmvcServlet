@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -24,8 +25,8 @@ public class SpringMemberControllerV3 {
 
     @RequestMapping("/save")
     public String save(@RequestParam("username") String username,
-                             @RequestParam("age") int age,
-                             Model model) {
+                       @RequestParam("age") int age,
+                       Model model) {
 
         Member member = new Member(username, age);
         memberRepository.save(member);
@@ -34,6 +35,7 @@ public class SpringMemberControllerV3 {
         model.addAttribute("member", member);
         return "save-result";
     }
+
     @RequestMapping
     public String members(Model model) {
 
@@ -45,7 +47,10 @@ public class SpringMemberControllerV3 {
 
     }
 
-
+    public static void main(String[] args) {
+        ArrayList<Object> objects = new ArrayList<>();
+        objects.add("hello");
+    }
 
 
 
